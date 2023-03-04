@@ -8,8 +8,8 @@ function readTextFile(file)
         {
             if(rawFile.status === 200 || rawFile.status == 0)
             {
-                var allText = rawFile.responseText;
-                alert(allText);
+                return rawFile.responseText;
+                
             }
         }
     }
@@ -17,5 +17,6 @@ function readTextFile(file)
 }
 
 window.onload = function() {
-  readTextFile('./test.txt');
+  var newURL = readTextFile('./test.txt');
+  document.getElementById('mainFrame').src = newURL;
 };
