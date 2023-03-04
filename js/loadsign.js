@@ -1,3 +1,6 @@
+var newURL;
+var oldURL;
+
 function readTextFile(file)
 {
     var rawFile = new XMLHttpRequest();
@@ -8,8 +11,7 @@ function readTextFile(file)
         {
             if(rawFile.status === 200 || rawFile.status == 0)
             {
-                return rawFile.responseText;
-                
+                newURL = rawFile.responseText;
             }
         }
     }
@@ -17,6 +19,9 @@ function readTextFile(file)
 }
 
 window.onload = function() {
-  var newURL = readTextFile('./test.txt');
-  document.getElementById('mainFrame').src = newURL;
+  readTextFile('./test.txt');
+  if( newURL != null && newURL != oldURL ) {
+    document.getElementById('mainFrame').src = newURL;
+    oldURL = newURL;
+  }
 };
