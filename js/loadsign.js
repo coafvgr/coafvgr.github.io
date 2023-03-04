@@ -1,3 +1,4 @@
+var urlFile = './sign-url.txt';
 var newURL;
 var oldURL;
 
@@ -19,7 +20,7 @@ function readTextFile(file)
 }
 
 function loadSign() {
-  readTextFile('./test.txt');
+  readTextFile(urlFile);
   if( newURL != null && newURL != oldURL ) {
     document.getElementById('mainFrame').src = newURL;
     oldURL = newURL;
