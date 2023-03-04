@@ -18,10 +18,14 @@ function readTextFile(file)
     rawFile.send(null);
 }
 
-window.onload = function() {
+function loadSign() {
   readTextFile('./test.txt');
   if( newURL != null && newURL != oldURL ) {
     document.getElementById('mainFrame').src = newURL;
     oldURL = newURL;
   }
+}
+
+window.onload = function() {
+  setInterval(loadSign, 10000);
 };
