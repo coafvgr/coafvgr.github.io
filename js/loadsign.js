@@ -27,5 +27,6 @@ function loadSign() {
 }
 
 window.onload = function() {
+  loadSign();
   setInterval(loadSign, 10000);
 };
