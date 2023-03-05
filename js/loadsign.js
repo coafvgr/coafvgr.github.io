@@ -4,6 +4,7 @@ var oldURL;
 
 function readTextFile(file)
 {
+    file += '?time=' + Date.now();
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, false);
     rawFile.onreadystatechange = function ()
